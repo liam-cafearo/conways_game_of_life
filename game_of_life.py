@@ -44,14 +44,15 @@ def evolve():
 def get_cells(density=0.2):
     return {(c, r): random.random() < density for c in range(columns) for r in range(rows)}
 
+
 pygame.init()
 
 columns, rows = 50, 50
+cells = get_cells()
 
 cell_size = 10
 size = width, height = columns * cell_size, rows * cell_size
 screen = pygame.display.set_mode(size)
-cells = get_cells()
 
 while True:
     for event in pygame.event.get():
@@ -59,6 +60,7 @@ while True:
             sys.exit()
 
     draw_cells()
+    evolve()
     draw_grid()
 
     pygame.display.update()
