@@ -54,7 +54,10 @@ cell_size = 10
 size = width, height = columns * cell_size, rows * cell_size
 screen = pygame.display.set_mode(size)
 
+clock = pygame.time.Clock()
+
 while True:
+    clock.tick(2)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
