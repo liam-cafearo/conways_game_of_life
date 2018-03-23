@@ -34,7 +34,7 @@ def evolve():
     for position, alive in cells.items():
         live_neighbours = sum(get_neighbours(position))
         if alive:
-            if live_neighbours not in [2, 3]:
+            if live_neighbours < 2 or live_neighbours > 3:
                 newCells[position] = False
         elif live_neighbours == 3:
             newCells[position] = True
